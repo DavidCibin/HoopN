@@ -55,11 +55,11 @@ class LoginPage extends Component {
             onChange={this.handleChange}
           />
           <br></br>
-          <span>Forgot password? </span>
+          {/* <span>Forgot password? </span>
           <Link className="reset-link" to="/reset-password">
             Reset
           </Link>
-          <br></br>
+          <br></br> */}
           <span>No account yet??? </span>
           <Link className="sign-up-link" to="/signup">
             Sign Up

@@ -2,7 +2,7 @@ import React from "react";
 import EventListCard from "../../components/EventListCard/EventListCard";
 
 function EventList(props) {
-    const { user, events, handleShow, history, places, weather } = props;
+    const { events, handleShow, history, places, weather } = props;
     const gamesNearMe = [];
 
     console.log("This is all events");

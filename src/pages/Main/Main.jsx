@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./Main.css";
 
 function Main(props) {
-    const { weather, history, sunrise, sunset, windDirection, user } = props;
+    const { weather, sunrise, sunset, windDirection, user } = props;
 
     return (
         <>

@@ -5,21 +5,21 @@ const BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001/api/aut
 function signup(user) {
   return fetch(BASE_URL + 'signup', {
     method: 'POST',
-    headers: new Headers({'Content-Type': 'application/json'}),
+    headers: new Headers({ 'Content-Type': 'application/json' }),
     body: JSON.stringify(user)
   })
-  .then(res => {
-    console.log(res, '<-- response object')
-    return res.json();
-  })
-  .then(json => {
-    if(json.token) return json;
-    console.log(json, '<-- the error')
-    throw new Error(`${json.err}`)
-  })
-  .then(({ token }) => {
-    tokenService.setToken(token)
-  })
+    .then(res => {
+      console.log(res, '<-- response object')
+      return res.json();
+    })
+    .then(json => {
+      if (json.token) return json;
+      console.log(json, '<-- the error')
+      throw new Error(`${json.err}`)
+    })
+    .then(({ token }) => {
+      tokenService.setToken(token)
+    })
 }
 
 function getUser() {
@@ -36,11 +36,11 @@ function login(creds) {
     headers: new Headers({ "Content-Type": "application/json" }),
     body: JSON.stringify(creds),
   })
-  .then((res) => {
-    if (res.ok) return res.json();
-    throw new Error("Bad Credentials!")
-  })
-  .then(({ token }) => tokenService.setToken(token));
+    .then((res) => {
+      if (res.ok) return res.json();
+      throw new Error("Bad Credentials!")
+    })
+    .then(({ token }) => tokenService.setToken(token));
 }
 
 function reset(email, token) {
