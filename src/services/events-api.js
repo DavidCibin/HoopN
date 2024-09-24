@@ -1,5 +1,6 @@
 import tokenService from '../services/tokenService';
-const BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001/api/events/';
+// const BASE_URL = process.env.REACT_APP_API_URL || '/api/events/';
+const BASE_URL = '/api/events/';
 
 export function getLocationEvents(locationID)
 

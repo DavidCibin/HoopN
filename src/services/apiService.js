@@ -1,4 +1,5 @@
-const BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001/api/api/';
+// const BASE_URL = process.env.REACT_APP_API_URL || '/api/api/';
+const BASE_URL = '/api/api/';
 
 
 function getWeatherZ(zip)
@@ -9,6 +10,7 @@ function getWeatherZ(zip)
 
 async function getWeatherL(lat,lng)
 {
+    console.log(lat,lng, BASE_URL+"weather/loc/"+lat+"&"+lng);
     return await fetch (BASE_URL+"weather/loc/"+lat+"&"+lng)
     .then((response)=>{
         return response.json()
