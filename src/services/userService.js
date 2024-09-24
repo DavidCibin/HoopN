@@ -1,5 +1,5 @@
 import tokenService from "../services/tokenService"
-// const BASE_URL = process.env.REACT_APP_API_URL || "/api/users/";
+
 const BASE_URL = '/api/users/';
 
 export function getAllUsers() {

@@ -1,6 +1,5 @@
 import tokenService from "./tokenService"
 
-// const BASE_URL = process.env.REACT_APP_API_URL || '/api/auth/';
 const BASE_URL = '/api/auth/';
 
 function signup(user) {
