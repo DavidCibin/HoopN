@@ -2,21 +2,15 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const logger = require('morgan');
+const cors = require('cors');
 
 require('dotenv').config();
 require('./config/database');
 
 const userRouter = require('./routes/users');
 const authRouter = require('./routes/auth');
-const apiRouter=require('./routes/api')
+const apiRouter = require('./routes/api');
 const eventRouter = require('./routes/events');
-
-
-const cors = require('cors')
-
-// Increase header size limit
-// app.use(express.json({ limit: '10kb' })); // adjust the size as needed
-// app.use(express.urlencoded({ limit: '10kb', extended: true })); // for URL-encoded data
 
 app.use(cors());
 app.use(logger('dev'));
@@ -36,8 +30,7 @@ app.use((err, req, res, next) => {
 
 app.get('/weather/loc', (req, res) => {
   const { lat, lng } = req.query;
-  // Logic for handling weather request
-  res.json({ lat, lng, weather: 'sunny' });  // Sample response
+  res.json({ lat, lng, weather: 'sunny' });
 });
 
 app.get('/api/api/weather/loc/', (req, res) => {
@@ -52,6 +45,6 @@ app.get('/*', function(req, res) {
 
 const port = process.env.PORT || 3001;
 
-app.listen(port, ()=> {
-  console.log(`Express is listening on port ${port}.`)
+app.listen(port, () => {
+  console.log(`Express is listening on port ${port}.`);
 });
