@@ -1,52 +1,51 @@
-import React, { Component, useState } from 'react';
-import './CreateEvent.css'
+import React, { Component } from "react";
+import "./CreateEvent.css";
 
 class CreateEvent extends Component {
     state = {
         invalidForm: true,
         formData: {
-            title: '',
+            title: "",
             placeId: this.props.location.props.location.state.park.place_id,
             locName: this.props.location.props.location.state.park.name,
             address: this.props.location.props.location.state.park.vicinity,
-            court: '', 
+            court: "",
             createdBy: this.props.user._id,
             participant: [this.props.user._id],
-            date: '',
-            time: '',
-            places: this.props.places
-        }
-    }
-
+            date: "",
+            time: "",
+            places: this.props.places,
+        },
+    };
 
     formRef = React.createRef();
 
-    handleSubmit = e => {
+    handleSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state.formData, "\n^^ this is formData")
-        this.props.handleAddEvent(this.state.formData)
-    }
+        console.log(this.state.formData, "\n^^ this is formData");
+        this.props.handleAddEvent(this.state.formData);
+    };
 
     todaysDate() {
-        return new Date().toJSON().split('T')[0]
+        return new Date().toJSON().split("T")[0];
     }
 
-    handleChange = e => {
-        const formData = { ...this.state.formData, [e.target.name]: e.target.value };
+    handleChange = (e) => {
+        const formData = {
+            ...this.state.formData,
+            [e.target.name]: e.target.value,
+        };
         this.setState({
             formData,
-            invalidForm: !this.formRef.current.checkValidity()
+            invalidForm: !this.formRef.current.checkValidity(),
         });
-    }
-
-    
+    };
 
     render() {
-        
-        const {park} = this.props.location.props.location.state
-        console.log(park,"\n^^This is the park")
-        console.log(this.props, "\n^^This is props Create Event")
-        
+        const { park } = this.props.location.props.location.state;
+        console.log(park, "\n^^This is the park");
+        console.log(this.props, "\n^^This is props Create Event");
+
         return (
             <div className="CreateEvent">
                 <form
@@ -133,8 +132,7 @@ class CreateEvent extends Component {
                                 className="active"
                                 value={this.state.formData.court.name}
                                 onChange={this.handleChange}
-                            >
-                            </input>
+                            ></input>
                         </div>
                     </div>
                     <div className="row">
@@ -146,8 +144,7 @@ class CreateEvent extends Component {
                                 className="active"
                                 value={this.state.formData.court.time}
                                 onChange={this.handleChange}
-                            >
-                            </input>
+                            ></input>
                         </div>
                     </div>
                     <button
@@ -164,4 +161,3 @@ class CreateEvent extends Component {
 }
 
 export default CreateEvent;
-

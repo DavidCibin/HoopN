@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import "./EventDetailsCard.css";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+
 function EventDetailsCard(props) {
     const [rating, setRating] = React.useState(null);
     const [review, setReview] = React.useState(null);
@@ -11,19 +12,9 @@ function EventDetailsCard(props) {
 
     const { id } = useParams();
     console.log(id, "\n^^ID on event details page");
-    const {
-        user,
-        deleteEvent,
-        participant,
-        court,
-        places,
-        update,
-        handleAddPlayer,
-        history,
-        events,
-    } = props;
+    const { user, deleteEvent, places, update, history, events } = props;
+
     let participating = false;
-    let inGame = [];
 
     console.log("Looking for event");
     events.forEach((e) => {
@@ -46,7 +37,7 @@ function EventDetailsCard(props) {
         if (participating) {
             console.log("Leaving Game");
             let players = event.participant.filter((player) => {
-                return player._id != user._id;
+                return player._id !== user._id;
             });
             event.participant = players;
         } else {
@@ -55,8 +46,8 @@ function EventDetailsCard(props) {
         await update(event);
     }
     try {
-        let inGame = event.participant.filter(
-            (person) => person._id.toString() == user._id.toString()
+        const inGame = event.participant.filter(
+            (person) => person._id.toString() === user._id.toString()
         );
         if (inGame.length > 0) {
             participating = true;
@@ -115,9 +106,8 @@ function EventDetailsCard(props) {
     //thisPlace = current google place
     //event = current event
     event.reviews.map((review) => {
-        review.content.toString();
-
         console.log(review.content);
+        return review.content.toString();
     });
     return (
         <>
@@ -160,7 +150,10 @@ function EventDetailsCard(props) {
                                                                 updateEvent
                                                             }
                                                         >
-                                                            <img src="https://i.ibb.co/Q6xz3ch/remove-user.png" />
+                                                            <img
+                                                                src="https://i.ibb.co/Q6xz3ch/remove-user.png"
+                                                                alt="remove-user"
+                                                            />
                                                         </Link>
                                                         Leave Game
                                                     </span>
@@ -173,7 +166,10 @@ function EventDetailsCard(props) {
                                                                 updateEvent
                                                             }
                                                         >
-                                                            <img src="https://i.ibb.co/vVgQY4N/add-user.png" />
+                                                            <img
+                                                                src="https://i.ibb.co/vVgQY4N/add-user.png"
+                                                                alt="add-user"
+                                                            />
                                                         </Link>
                                                         Join Game
                                                     </span>

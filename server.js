@@ -39,7 +39,7 @@ app.get('/api/api/weather/loc/', (req, res) => {
   res.json({ message: `Coordinates: ${lat}, ${lng}` });
 });
 
-app.get('/*', function(req, res) {
+app.get('/*', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
