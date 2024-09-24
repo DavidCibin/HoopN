@@ -3,8 +3,6 @@ import { Link, useParams } from "react-router-dom";
 import './EventDetailsCard.css'
 import Card from "react-bootstrap/Card"
 import Button from "react-bootstrap/Button"
-import EventDetails from '../../pages/EventDetails/EventDetails' //??????
-import axios from 'axios';
 function EventDetailsCard(props) {
 	const [rating, setRating] = React.useState(null)
 	const [review, setReview] = React.useState(null)

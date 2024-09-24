@@ -1,6 +1,6 @@
 import tokenService from "./tokenService"
 
-const BASE_URL = '/api/auth/';
+const BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001/api/auth/';
 
 function signup(user) {
   return fetch(BASE_URL + 'signup', {

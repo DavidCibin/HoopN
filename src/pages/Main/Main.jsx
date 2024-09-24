@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { router } from "react-router-dom"
+import React from "react";
 import { Link } from "react-router-dom";
 import './Main.css'
 
@@ -42,7 +41,7 @@ function Main(props) {
                 </div>
                 :
                 <div>
-                    <img className="load-gif" className="load-gif" src="https://media.giphy.com/media/vZROLXfaqhbhHO8qwr/giphy.gif"></img>
+                    <img className="load-gif" src="https://media.giphy.com/media/vZROLXfaqhbhHO8qwr/giphy.gif" alt="loading" />
                 </div>
             }
 
